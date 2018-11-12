@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:local="clr-namespace:EventApp;assembly=EventApp.Android"
+             x:Class="EventApp.Views.ScanPage"
+             BindingContext="{Binding Source={x:Static local:ViewModelLocator.Instance}, Path=ScanViewModel}">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="Black">
+
+            <Label Text="Scanning" TextColor="White" HorizontalOptions="Center" FontSize="30"/>
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <zxing:ZXingScannerView IsScanning="{Binding IsScanning}" IsAnalyzing="{Binding IsAnalyzing}" Result="{Binding Result, Mode=TwoWay}" ScanResultCommand="{Binding QRScanResultCommand}"></zxing:ZXingScannerView>
+                <zxing:ZXingDefaultOverlay ShowFlashButton="False" Opacity="0.9"/>
+            </Grid>
+        </StackLayout>
+        </ContentPage.Content>
+
+</ContentPage>
